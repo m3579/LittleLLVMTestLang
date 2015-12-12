@@ -1,9 +1,7 @@
 #include <iostream>
 
-using namespace std;
+#include <Lexer.hpp>
 
 int main()
 {
-    cout << "Hello world!" << endl;
-    return 0;
 }
