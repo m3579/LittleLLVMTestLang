@@ -10,7 +10,7 @@ using namespace pointer;
 
 int main()
 {
-    Parser parser = getParser(getLexer("1+2"));
+    Parser parser = getParser(getLexer("1*2+3"));
     SP<SyntaxTree> tree(parser.createSyntaxTree());
     tree->print("");
 }
