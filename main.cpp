@@ -6,10 +6,11 @@
 
 using namespace parser;
 using namespace ast;
+using namespace pointer;
 
 int main()
 {
     Parser parser = getParser(getLexer("1+2"));
-    std::shared_ptr<SyntaxTree> tree(parser.createSyntaxTree());
+    SP<SyntaxTree> tree(parser.createSyntaxTree());
     tree->print("");
 }

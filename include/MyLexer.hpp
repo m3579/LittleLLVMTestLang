@@ -11,6 +11,9 @@ using namespace token;
 
 createTokenType(TTYPE_NUMBER);
 createTokenType(TTYPE_PLUS_TOKEN);
+createTokenType(TTYPE_MINUS_TOKEN);
+createTokenType(TTYPE_ASTERISK);
+createTokenType(TTYPE_FORWARD_SLASH);
 createTokenType(TTYPE_END);
 
 const std::string NUMBER_CHARS = "1234567890";
@@ -38,6 +41,37 @@ lexer::Lexer getLexer(std::string text)
             }
             return Token();
         }
+    );
+
+    myLexer.addTest(
+        [] (Scanner& sc)
+        {
+            if (sc.getCurrentChar() == '-') {
+                Token t = Token(sc.getLineNumber(), sc.getColumnNumber(), "-", TTYPE_MINUS_TOKEN);
+                return t;
+            }
+            return Token();
+        }
+    );
+
+    myLexer.addTest(
+    [] (Scanner& sc)
+    {
+        if (sc.getCurrentChar() == '*') {
+            return Token(sc.getLineNumber(), sc.getColumnNumber(), "*", TTYPE_ASTERISK);
+        }
+        return Token();
+    }
+    );
+
+    myLexer.addTest(
+    [] (Scanner& sc)
+    {
+        if (sc.getCurrentChar() == '/') {
+            return Token(sc.getLineNumber(), sc.getColumnNumber(), "/", TTYPE_FORWARD_SLASH);
+        }
+        return Token();
+    }
     );
 
     myLexer.addTest(

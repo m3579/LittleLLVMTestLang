@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1450544174 source:c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvmtestlang\main.cpp
+1450627263 source:c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvmtestlang\main.cpp
 	<iostream>
 	<Parser.hpp>
 	"MyParser.hpp"
 
-1450546325 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\parser.hpp
+1450568929 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\parser.hpp
 	<string>
 	"Branchable.hpp"
 	"SyntaxTree.hpp"
@@ -12,19 +12,20 @@
 	"Symbol.hpp"
 	"TokenManager.hpp"
 	"../NodeType.h"
+	"SmartPointer.hpp"
 
-1450544055 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\syntaxtree.hpp
+1450568845 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\syntaxtree.hpp
 	"TokenManager.hpp"
 	"Branchable.hpp"
 	"Node.hpp"
 
-1450405240 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\node.hpp
-	<memory>
+1450568992 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\node.hpp
 	<vector>
 	"Node.hpp"
 	"Token.hpp"
 	"../NodeType.h"
 	"Branchable.hpp"
+	"SmartPointer.hpp"
 
 1448819758 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\token.hpp
 	<string>
@@ -45,10 +46,12 @@
 
 1442458672 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\scanner.hpp
 
-1450546603 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\symbol.hpp
+1450568140 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\symbol.hpp
 	<vector>
 	"Token.hpp"
 	"Node.hpp"
+	"ast.hpp"
+	"SmartPointer.hpp"
 
 1449896911 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\tokenmanager.hpp
 	<vector>
@@ -58,11 +61,13 @@
 
 1442458625 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\ref.hpp
 
-1450544382 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvmtestlang\include\myparser.hpp
+1450627442 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvmtestlang\include\myparser.hpp
 	<Parser.hpp>
 	"MyLexer.hpp"
+	"ast.hpp"
+	"SmartPointer.hpp"
 
-1450404702 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvmtestlang\include\mylexer.hpp
+1450627316 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvmtestlang\include\mylexer.hpp
 	<iostream>
 	<Lexer.hpp>
 	<TokenType.h>
@@ -70,6 +75,12 @@
 1450226884 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\cleancode.h
 	"Lexer.hpp"
 
-1450405628 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\branchable.hpp
-	<memory>
+1450568820 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\branchable.hpp
+	"SmartPointer.hpp"
+
+1450569691 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\smartpointer.hpp
+
+1450568278 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\ast.hpp
+	<functional>
+	"TokenManager.hpp"
 
