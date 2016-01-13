@@ -18,7 +18,8 @@ createNodeType(NTYPE_SUBTRACT);
 createNodeType(NTYPE_MULTIPLY);
 createNodeType(NTYPE_DIVIDE);
 
-SP<Symbol> number(new Symbol(TTYPE_NUMBER, "Number", symbolFoundDoNothing, NTYPE_NUMBER));
+SP<Symbol> oper1(new Symbol(TTYPE_NUMBER, "Operator #1", symbolFoundDoNothing, NTYPE_NUMBER));
+SP<Symbol> oper2(new Symbol(TTYPE_NUMBER, "Operator #2", symbolFoundDoNothing, NTYPE_NUMBER));
 
 SP<Symbol> add(new Symbol(TTYPE_PLUS_TOKEN, "Add", symbolFoundDoNothing, NTYPE_ADD));
 
@@ -39,26 +40,21 @@ Parser getParser(lexer::Lexer myLexer)
 {
     Parser myParser(myLexer);
 
-    // Expressions
-    myParser.addSymbol(number);
+    SP<Construct> add_constr(
+        new Construct(
+            std::vector<SP<Symbol>> {
+                oper1, add, oper2
+            }));
 
-    number->addNextSymbol(add, 1);
-    add->addNextSymbol(number, 0);
-    add->noFind = invalidExpression;
+    SP<ConstructTreeForm> add_expr_treeForm("Add");
+    add_expr_treeForm.subnode("Operator #1");
+    add_expr_treeForm.subnode("Operator #2");
 
-    number->addNextSymbol(subtract, 1);
-    subtract->addNextSymbol(number, 0);
-    subtract->noFind = invalidExpression;
+    add_constr.treeForm = add_expr_treeForm;
 
-    number->addNextSymbol(multiply, 1);
-    multiply->addNextSymbol(number, 0);
-    multiply->noFind = invalidExpression;
+    myParser.addConstruct(add_constr);
 
-    number->addNextSymbol(divide, 1);
-    divide->addNextSymbol(number, 0);
-    divide->noFind = invalidExpression;
-
-    myParser.addSymbol(theEnd);
+    myParser.addConstruct(SP<Construct>(new Construct(theEnd)));
 
     return myParser;
 }
