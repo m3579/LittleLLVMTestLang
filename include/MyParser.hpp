@@ -1,7 +1,6 @@
 #ifndef MYPARSER_HPP_INCLUDED
 #define MYPARSER_HPP_INCLUDED
 
-
 #include <Parser.hpp>
 
 #include "MyLexer.hpp"
@@ -22,19 +21,13 @@ SP<Symbol> oper1(new Symbol(TTYPE_NUMBER, "Operator #1", symbolFoundDoNothing, N
 SP<Symbol> oper2(new Symbol(TTYPE_NUMBER, "Operator #2", symbolFoundDoNothing, NTYPE_NUMBER));
 
 SP<Symbol> add(new Symbol(TTYPE_PLUS_TOKEN, "Add", symbolFoundDoNothing, NTYPE_ADD));
-
 SP<Symbol> subtract(new Symbol(TTYPE_MINUS_TOKEN, "Subtract", symbolFoundDoNothing, NTYPE_SUBTRACT));
-
 SP<Symbol> multiply(new Symbol(TTYPE_ASTERISK, "Multiply", symbolFoundDoNothing, NTYPE_MULTIPLY));
-
 SP<Symbol> divide(new Symbol(TTYPE_FORWARD_SLASH, "Divide", symbolFoundDoNothing, NTYPE_DIVIDE));
 
 SP<Symbol> theEnd(new Symbol(TTYPE_END, "End", [] (TokenManager& tm) { exit = true; }, NTYPE_NONODE));
 
-void invalidExpression(TokenManager& tm)
-{
-    std::cout << "Error: invalid expression\n";
-}
+void invalidExpression(TokenManager& tm);
 
 Parser getParser(lexer::Lexer myLexer)
 {
@@ -46,7 +39,7 @@ Parser getParser(lexer::Lexer myLexer)
                 oper1, add, oper2
             }));
 
-    SP<ConstructTreeForm> add_expr_treeForm("Add");
+    SP<ConstructTreeFormNode> add_expr_treeForm("Add");
     add_expr_treeForm.subnode("Operator #1");
     add_expr_treeForm.subnode("Operator #2");
 
@@ -59,5 +52,9 @@ Parser getParser(lexer::Lexer myLexer)
     return myParser;
 }
 
+void invalidExpression(TokenManager& tm)
+{
+    std::cout << "Error: invalid expression\n";
+}
 
 #endif // MYPARSER_HPP_INCLUDED
