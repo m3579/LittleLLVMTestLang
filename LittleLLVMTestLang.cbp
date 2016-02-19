@@ -43,7 +43,10 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/MyLexer.hpp" />
-		<Unit filename="include/MyParser.hpp" />
+		<Unit filename="include/MyLexer2.hpp" />
+		<Unit filename="include/MyParser1.hpp" />
+		<Unit filename="include/MyParser2.hpp" />
+		<Unit filename="include/MyParser3.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

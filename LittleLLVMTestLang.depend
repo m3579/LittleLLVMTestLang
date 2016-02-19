@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1450649453 source:c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvmtestlang\main.cpp
+1455822894 source:c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvmtestlang\main.cpp
 	<iostream>
 	<Parser.hpp>
-	"MyParser.hpp"
+	"MyParser3.hpp"
 
-1452579556 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\parser.hpp
+1455821944 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\parser.hpp
 	<string>
 	"SyntaxTreeComponent.hpp"
 	"SyntaxTree.hpp"
@@ -13,19 +13,20 @@
 	"TokenManager.hpp"
 	"NodeType.h"
 	"SmartPointer.hpp"
-	"Construct.h"
+	"Construct.hpp"
+	"FlatNodeList.hpp"
 
-1450738023 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\syntaxtree.hpp
+1455757890 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\syntaxtree.hpp
 	"TokenManager.hpp"
 	"SyntaxTreeComponent.hpp"
-	"Node.hpp"
 
-1450738025 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\node.hpp
+1455822058 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\node.hpp
 	<vector>
-	"Node.hpp"
 	"Token.hpp"
-	"../NodeType.h"
+	"Node.hpp"
+	"NodeType.h"
 	"SyntaxTreeComponent.hpp"
+	"FlatNodeListItem.hpp"
 	"SmartPointer.hpp"
 
 1448819758 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\token.hpp
@@ -62,7 +63,7 @@
 
 1442458625 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\ref.hpp
 
-1452579710 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvmtestlang\include\myparser.hpp
+1455756863 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvmtestlang\include\myparser.hpp
 	<Parser.hpp>
 	"MyLexer.hpp"
 	"ast.hpp"
@@ -81,7 +82,7 @@
 1450650197 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\smartpointer.hpp
 	<memory>
 
-1450739331 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\ast.hpp
+1453084638 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\ast.hpp
 	<functional>
 	"TokenManager.hpp"
 
@@ -89,7 +90,7 @@
 	"TokenManager.hpp"
 	"ast.hpp"
 
-1450738099 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\syntaxtreecomponent.hpp
+1455758190 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\syntaxtreecomponent.hpp
 	"SmartPointer.hpp"
 
 1452579722 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\construct.h
@@ -98,4 +99,50 @@
 	"Branch.h"
 
 1450739357 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\branch.h
+
+1455758525 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\nodelistitem.hpp
+	"SmartPointer.hpp"
+
+1455757444 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\construct.hpp
+	<initializer_list>
+	"Symbol.hpp"
+	"TreeForm.hpp"
+	"ConstructTreeFormNode.hpp"
+
+1452974268 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\treeform.hpp
+
+1455758568 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\nodelist.hpp
+	"NodeListItem.hpp"
+	"SingleNodeListItem.hpp"
+
+1455758719 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\singlenodelistitem.hpp
+	"Node.hpp"
+	"NodeListItem.hpp"
+
+1455823278 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\constructtreeformnode.hpp
+	"SmartPointer.hpp"
+	<vector>
+
+1455767010 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvmtestlang\include\myparser2.hpp
+	<Parser.hpp>
+	"MyLexer.hpp"
+
+1455824576 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvmtestlang\include\myparser3.hpp
+	<Parser.hpp>
+	"MyLexer2.hpp"
+
+1455780017 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvmtestlang\include\mylexer2.hpp
+	<Lexer.hpp>
+
+1455821299 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\flatnodelistitem.hpp
+	"SmartPointer.hpp"
+
+1455830831 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\flatnodelist.hpp
+	"FlatNodeListItem.hpp"
+	"FlatNode.hpp"
+	"ConstructTreeFormNode.hpp"
+
+1455822376 c:\users\mihir kasmalkar\documents\_programs\codeblocks\littlellvm\include\flatnode.hpp
+	"Node.hpp"
+	"FlatNodeListItem.hpp"
 
