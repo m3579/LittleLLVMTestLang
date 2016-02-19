@@ -62,6 +62,10 @@ Parser getParser(Lexer lexer)
 
     // =
     SP<Construct> assignment_op(new Construct("Operator - assignment", TType::Operator::ASSIGNMENT_OP, NType::Operator::ASSIGNMENT_OP, 0, 0));
+    assignment_op->notFound = [] (TokenManager& tm) {
+        std::cout << "Error: expected assignment operator\n";
+        tm.exit = true;
+    };
 
     // value
     SP<Construct> value(new Construct("Value", TType::Value::NUMBER, NType::Value::NUMBER, 0, 0));
