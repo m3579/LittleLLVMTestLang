@@ -55,26 +55,26 @@ Parser getParser(Lexer lexer)
     Parser myParser(lexer);
 
     // let
-    SP<Construct> let(new Construct("Keyword - let", TType::Keyword::LET, NType::Keyword::LET));
+    SP<Construct> let(new Construct("Keyword - let", TType::Keyword::LET, NType::Keyword::LET, 0, 0));
 
     // var
-    SP<Construct> identifier(new Construct("Identifier", TType::IDENTIFIER, NType::IDENTIFIER));
+    SP<Construct> identifier(new Construct("Identifier", TType::IDENTIFIER, NType::IDENTIFIER, 0, 0));
 
     // =
-    SP<Construct> assignment_op(new Construct("Operator - assignment", TType::Operator::ASSIGNMENT_OP, NType::Operator::ASSIGNMENT_OP));
+    SP<Construct> assignment_op(new Construct("Operator - assignment", TType::Operator::ASSIGNMENT_OP, NType::Operator::ASSIGNMENT_OP, 0, 0));
 
     // value
-    SP<Construct> value(new Construct("Value", TType::Value::NUMBER, NType::Value::NUMBER));
+    SP<Construct> value(new Construct("Value", TType::Value::NUMBER, NType::Value::NUMBER, 0, 0));
 
     // <space>
-    SP<Construct> space(new Construct("Space", TType::SPACE, NType::SPACE));
+    SP<Construct> space(new Construct("Space", TType::SPACE, NType::SPACE, 0, 0));
 
     // Variable declaration statement
     std::vector<SP<Construct>> var_dec_components {
         let, space, identifier, space, assignment_op, space, value
     };
 
-    SP<Construct> var_dec_constr(new Construct("Variable Declaration", var_dec_components));
+    SP<Construct> var_dec_constr(new Construct("Variable Declaration", var_dec_components, 0, 0));
 
     SP<ConstructTreeFormNode> var_dec_treeForm(new ConstructTreeFormNode("Operator - assignment"));
     var_dec_treeForm->subnode("Identifier");
@@ -85,8 +85,9 @@ Parser getParser(Lexer lexer)
     myParser.addConstruct(var_dec_constr);
 
     // End
-    SP<Construct> end_constr(new Construct("End", TType::END, NType::END));
+    SP<Construct> end_constr(new Construct("End", TType::END, NType::END, [] (TokenManager& tm) { tm.exit = true; }, 0));
 
+    // TODO: make this form of construct tree form the default
     SP<ConstructTreeFormNode> end_treeForm(new ConstructTreeFormNode("End"));
 
     end_constr->treeForm = end_treeForm;
