@@ -12,7 +12,7 @@ using namespace pointer;
 int main()
 {
     try {
-        Parser parser = getParser(getLexer("letvar = 1"));
+        Parser parser = getParser(getLexer("let var = 1"));
         SP<SyntaxTree> tree(parser.createSyntaxTree());
         tree->print("");
     }

@@ -58,7 +58,7 @@ Parser getParser(Lexer lexer)
     SP<Construct> let_keyword(new Construct("Keyword - let", TType::Keyword::LET, NType::Keyword::LET, 0, 0, false));
 
     // <space>
-    SP<Construct> spaceAfterLet(new Construct("Space After Let", TType::SPACE, NType::SPACE, 0, 0, false));
+    SP<Construct> spaceAfterLet(new Construct("Space After Let", TType::SPACE, NType::SPACE, 0, [] (TokenManager& tm) { std::cout << "Error: expected space after let"; tm.exit = true; }, false));
 
     // let + <space>
     std::vector<SP<Construct>> letKeywordAndSpaceComponents {
