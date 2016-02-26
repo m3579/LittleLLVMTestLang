@@ -43,6 +43,7 @@ namespace TType
     namespace Operator
     {
         createTokenType(ASSIGNMENT_OP);
+        createTokenType(INCREMENT_OP);
     }
 
     namespace Value
@@ -105,6 +106,20 @@ Lexer getLexer(std::string text)
          {
              if (sc.getCurrentChar() == '=') {
                 return Token(sc.getLineNumber(), sc.getColumnNumber(), "=", TType::Operator::ASSIGNMENT_OP);
+             }
+
+             return Token();
+         }
+    );
+
+    lexr.addTest(
+        [] (Scanner& sc)
+         {
+             if (sc.getCurrentChar() == '+') {
+                if (sc.fetchNextChar() == '=') {
+                    sc.moveToNextChar();
+                    return Token(sc.getLineNumber(), sc.getColumnNumber(), "+=", TType::Operator::INCREMENT_OP);
+                 }
              }
 
              return Token();

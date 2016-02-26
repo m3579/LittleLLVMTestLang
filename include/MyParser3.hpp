@@ -41,6 +41,7 @@ namespace NType
     namespace Operator
     {
         createNodeType(ASSIGNMENT_OP);
+        createNodeType(INCREMENT_OP);
     }
 
     namespace Value
@@ -70,9 +71,16 @@ Parser getParser(Lexer lexer)
     SP<Construct> identifier(new Construct("Identifier", TType::IDENTIFIER, NType::IDENTIFIER, 0, 0, false));
 
     // =
-    SP<Construct> assignment_op(new Construct("Operator - assignment", TType::Operator::ASSIGNMENT_OP, NType::Operator::ASSIGNMENT_OP, 0, 0, false));
-    assignment_op->notFound = [] (TokenManager& tm) {
-        std::cout << "Error: expected assignment operator\n";
+    std::vector<TokenType> var_dec_op_ttypes {
+        TType::Operator::ASSIGNMENT_OP, TType::Operator::INCREMENT_OP
+    };
+    std::vector<NodeType> var_dec_op_ntypes {
+        NType::Operator::ASSIGNMENT_OP, NType::Operator::INCREMENT_OP
+    };
+
+    SP<Construct> var_dec_op(new Construct("Var dec operator", var_dec_op_ttypes, var_dec_op_ntypes, 0, 0, false));
+    var_dec_op->notFound = [] (TokenManager& tm) {
+        std::cout << "Error: expected operator after variable\n";
         tm.exit = true;
     };
 
@@ -84,12 +92,12 @@ Parser getParser(Lexer lexer)
 
     // Variable declaration statement
     std::vector<SP<Construct>> var_dec_components {
-        letKeywordAndSpace, identifier, space, assignment_op, space, value
+        letKeywordAndSpace, identifier, space, var_dec_op, space, value
     };
 
     SP<Construct> var_dec_constr(new Construct("Variable Declaration", var_dec_components, 0, 0, false));
 
-    SP<ConstructTreeFormNode> var_dec_treeForm(new ConstructTreeFormNode("Operator - assignment"));
+    SP<ConstructTreeFormNode> var_dec_treeForm(new ConstructTreeFormNode("Var dec operator"));
     var_dec_treeForm->subnode("Identifier");
     var_dec_treeForm->subnode("Value");
 
